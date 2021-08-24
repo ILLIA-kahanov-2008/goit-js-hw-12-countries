@@ -12,6 +12,7 @@ refs.searchInput.addEventListener('input', debounce(searchCountry, 500));
 function searchCountry(){
   const inputValue = refs.searchInput.value;
   if (inputValue === "") {
+    refs.container.innerHTML = "";
     return notice({text: 'Enter country name '})
   }
   fetchCountries(inputValue)
