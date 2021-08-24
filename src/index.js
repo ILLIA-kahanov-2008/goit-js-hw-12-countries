@@ -11,6 +11,9 @@ refs.searchInput.addEventListener('input', debounce(searchCountry, 500));
 
 function searchCountry(){
   const inputValue = refs.searchInput.value;
+  if (inputValue === "") {
+    return notice({text: 'Enter country name '})
+  }
   fetchCountries(inputValue)
   .then(searchedNames => { 
     if (searchedNames.length > 10) {     
